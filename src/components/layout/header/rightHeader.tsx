@@ -23,13 +23,19 @@ export default function RightHeader() {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                    <DropdownMenuItem onClick={() => setTheme("light")}>Sáng</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setTheme("dark")}>Tối</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setTheme("system")}>Theo hệ thống</DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("light")}>
+                        Sáng
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("dark")}>
+                        Tối
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer" onClick={() => setTheme("system")}>
+                        Theo hệ thống
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
             <Button asChild variant="ghost">
-                <Link href="/signin">Đăng nhập/ Tạo tài khoản</Link>
+                <Link href="/enter">Đăng nhập/ Tạo tài khoản</Link>
             </Button>
             {login && (
                 <DropdownMenu>

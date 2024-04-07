@@ -4,21 +4,25 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
-export default function Signin() {
+export default function EnterComponent() {
     const [loading, setLoading] = useState<boolean>(false);
+    const [showHidePassword, setShowHidePassword] = useState<boolean>(false);
     const formSchema = z.object({
         username: z
             .string()
             .min(1, {
                 message: "Tên tài khoản không được để trống",
             })
-            .max(50),
+            .max(20, { message: "Tên người dùng không dài quá 20 kí tự" }),
         password: z.string().min(1, {
             message: "Mật khẩu không được để trống",
         }),
@@ -33,19 +37,20 @@ export default function Signin() {
     });
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
         console.log(values);
     }
 
     return (
         <div className="flex h-screen">
-            <div className="w-1/2 bg-zinc-900"></div>
-            <div className="w-1/2 flex flex-col items-center justify-center">
-                <span className="text-2xl font-semibold tracking-tight">Account Login</span>
+            <div className="w-1/2 lg:block hidden relative ">
+                <Image src="/images/illusts/001.jpg" style={{ objectFit: "cover" }} fill alt=""></Image>
+            </div>
+            <div className="lg:w-1/2 gap-6 w-full flex flex-col items-center justify-center">
+                <span className="text-2xl font-semibold tracking-tight">Đăng nhập tài khoản</span>
                 <Form {...form}>
-                    <form className="w-1/2 flex flex-col gap-3" onSubmit={form.handleSubmit(onSubmit)}>
+                    <form className="lg:w-1/2 w-3/4 flex flex-col gap-4" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField
+                            disabled={loading === true}
                             control={form.control}
                             name="username"
                             render={({ field }) => (
@@ -58,17 +63,29 @@ export default function Signin() {
                                 </FormItem>
                             )}></FormField>
                         <FormField
+                            disabled={loading === true}
                             control={form.control}
                             name="password"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Mật khẩu</FormLabel>
                                     <FormControl>
-                                        <Input type="password" placeholder="Nhập mật khẩu" {...field} />
+                                        <Input autoComplete="true" type={showHidePassword ? "text" : "password"} placeholder="Nhập mật khẩu" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}></FormField>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-2">
+                                <Checkbox id="showPassword" onClick={() => setShowHidePassword(!showHidePassword)} />
+                                <label htmlFor="showPassword" className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                    Hiển thị mật khẩu
+                                </label>
+                            </div>
+                            <Link className="text-sm font-medium leading-none underline underline-offset-4 hover:text-primary" href="/forgot">
+                                Quên mật khẩu?
+                            </Link>
+                        </div>
                         <Button disabled={loading} type="submit">
                             {loading ? (
                                 <>
@@ -81,17 +98,13 @@ export default function Signin() {
                         </Button>
                     </form>
                 </Form>
-                <p className="mt-4 px-8 text-center text-sm text-muted-foreground">
-                    By clicking continue, you agree to our <br />
-                    <Link className="underline underline-offset-4 hover:text-primary" href="/terms">
-                        Terms of Service
-                    </Link>{" "}
-                    and{" "}
-                    <Link className="underline underline-offset-4 hover:text-primary" href="/privacy">
-                        {" "}
-                        Privacy Policy
+                <Separator className="lg:w-1/2 w-3/4" />
+                <span className="text-sm font-medium leading-none hover:text-primary">
+                    Bạn là người mới?{" "}
+                    <Link className="underline underline-offset-4" href="/create">
+                        Đăng ký ngay
                     </Link>
-                </p>
+                </span>
             </div>
         </div>
     );
