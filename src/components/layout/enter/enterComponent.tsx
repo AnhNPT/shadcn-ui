@@ -12,17 +12,21 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { emailRegex } from "@/components/variable/sharedVariable";
 
 export default function EnterComponent() {
     const [loading, setLoading] = useState<boolean>(false);
     const [showHidePassword, setShowHidePassword] = useState<boolean>(false);
     const formSchema = z.object({
-        username: z
+        email: z
             .string()
             .min(1, {
-                message: "Tên tài khoản không được để trống",
+                message: "Email không được để trống",
             })
-            .max(20, { message: "Tên người dùng không dài quá 20 kí tự" }),
+            .max(50, { message: "Email không dài quá 50 kí tự" })
+            .regex(emailRegex, {
+                message: "Email không đúng định dạng",
+            }),
         password: z.string().min(1, {
             message: "Mật khẩu không được để trống",
         }),
@@ -31,7 +35,7 @@ export default function EnterComponent() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            email: "",
             password: "",
         },
     });
@@ -52,12 +56,12 @@ export default function EnterComponent() {
                         <FormField
                             disabled={loading === true}
                             control={form.control}
-                            name="username"
+                            name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Tên tài khoản</FormLabel>
+                                    <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Nhập tên tài khoản" {...field} />
+                                        <Input placeholder="Nhập Email" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { emailRegex } from "@/components/variable/sharedVariable";
 
 export default function CreateComponent() {
     const [loading, setLoading] = useState<boolean>(false);
@@ -19,13 +20,16 @@ export default function CreateComponent() {
 
     const formSchema = z
         .object({
-            username: z
+            email: z
                 .string()
                 .min(1, {
-                    message: "Tên tài khoản không được để trống",
+                    message: "Email không được để trống",
                 })
-                .max(20, {
-                    message: "Tên người dùng không dài quá 20 kí tự",
+                .max(50, {
+                    message: "Email không dài quá 50 kí tự",
+                })
+                .regex(emailRegex, {
+                    message: "Email không đúng định dạng",
                 }),
             password: z.string().min(1, {
                 message: "Mật khẩu không được để trống",
@@ -42,7 +46,7 @@ export default function CreateComponent() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            email: "",
             password: "",
             reTypePassword: "",
         },
@@ -63,13 +67,13 @@ export default function CreateComponent() {
                     <form className="lg:w-1/2 w-3/4 flex flex-col gap-4" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField
                             control={form.control}
-                            name="username"
+                            name="email"
                             disabled={loading === true}
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Tên tài khoản</FormLabel>
+                                    <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Nhập tên tài khoản" {...field} />
+                                        <Input placeholder="Nhập Email" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
