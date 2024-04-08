@@ -3,17 +3,26 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { MoonIcon, SunIcon, MagnifyingGlassIcon, CalendarIcon, EnvelopeClosedIcon, FaceIcon, GearIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import Link from "next/link";
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "@/components/ui/command";
 
 export default function RightHeader() {
     const [login, setLogin] = useState<boolean>(false);
+    const [openSearch, setOpenSearch] = useState<boolean>(false);
     const { setTheme } = useTheme();
 
     return (
-        <div className="flex gap-4 items-center">
+        <div className="flex sm:gap-4 gap-2 items-center">
+            <Button onClick={() => setOpenSearch(true)} variant="outline" size="icon">
+                <MagnifyingGlassIcon className="h-[1.2rem] w-[1.2rem]" />
+            </Button>
+            <CommandDialog open={openSearch} onOpenChange={setOpenSearch}>
+                <CommandInput className="opacity-100" placeholder="Nhập từ khóa tìm kiếm" />
+                <CommandList></CommandList>
+            </CommandDialog>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="icon">
@@ -34,10 +43,7 @@ export default function RightHeader() {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-            <Button asChild variant="ghost">
-                <Link href="/enter">Đăng nhập/ Tạo tài khoản</Link>
-            </Button>
-            {login && (
+            {login ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger className="cursor-pointer" asChild>
                         <Avatar>
@@ -50,6 +56,12 @@ export default function RightHeader() {
                         <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
+            ) : (
+                <Button asChild variant="ghost">
+                    <Link className="" href="/enter">
+                        Đăng nhập
+                    </Link>
+                </Button>
             )}
         </div>
     );
