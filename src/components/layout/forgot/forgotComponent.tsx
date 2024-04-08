@@ -14,7 +14,7 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { emailRegex } from "@/components/variable/sharedVariable";
 
-export default function EnterComponent() {
+export default function ForgotComponent() {
     const [loading, setLoading] = useState<boolean>(false);
     const [showHidePassword, setShowHidePassword] = useState<boolean>(false);
     const formSchema = z.object({
@@ -27,16 +27,12 @@ export default function EnterComponent() {
             .regex(emailRegex, {
                 message: "Email không đúng định dạng",
             }),
-        password: z.string().min(1, {
-            message: "Mật khẩu không được để trống",
-        }),
     });
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             email: "",
-            password: "",
         },
     });
 
@@ -50,7 +46,7 @@ export default function EnterComponent() {
                 <Image src="/images/illusts/001.jpg" style={{ objectFit: "cover" }} fill alt=""></Image>
             </div>
             <div className="lg:w-1/2 gap-6 w-full flex flex-col items-center justify-center">
-                <span className="text-2xl font-semibold tracking-tight">Đăng nhập tài khoản</span>
+                <span className="text-2xl font-semibold tracking-tight">Quên mật khẩu</span>
                 <Form {...form}>
                     <form className="lg:w-1/2 w-3/4 flex flex-col gap-4" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField
@@ -66,30 +62,7 @@ export default function EnterComponent() {
                                     <FormMessage />
                                 </FormItem>
                             )}></FormField>
-                        <FormField
-                            disabled={loading === true}
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Mật khẩu</FormLabel>
-                                    <FormControl>
-                                        <Input autoComplete="true" type={showHidePassword ? "text" : "password"} placeholder="Nhập mật khẩu" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}></FormField>
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center gap-2">
-                                <Checkbox id="showPassword" onClick={() => setShowHidePassword(!showHidePassword)} />
-                                <label htmlFor="showPassword" className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                    Hiển thị mật khẩu
-                                </label>
-                            </div>
-                            <Link className="text-sm font-medium leading-none underline underline-offset-4 hover:text-primary" href="/forgot">
-                                Quên mật khẩu?
-                            </Link>
-                        </div>
+
                         <Button disabled={loading} type="submit">
                             {loading ? (
                                 <>
@@ -97,16 +70,16 @@ export default function EnterComponent() {
                                     Vui lòng chờ
                                 </>
                             ) : (
-                                "Đăng nhập"
+                                "Xác nhận"
                             )}
                         </Button>
                     </form>
                 </Form>
                 <Separator className="lg:w-1/2 w-3/4" />
                 <span className="text-sm font-medium leading-none hover:text-primary">
-                    Bạn là người mới?{" "}
-                    <Link className="underline underline-offset-4" href="/create">
-                        Đăng ký ngay
+                    Bạn đã có tài khoản?{" "}
+                    <Link className="underline underline-offset-4" href="/enter">
+                        Đăng nhập ngay
                     </Link>
                 </span>
             </div>
