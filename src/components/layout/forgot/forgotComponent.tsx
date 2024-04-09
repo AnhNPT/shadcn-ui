@@ -8,15 +8,15 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { emailRegex } from "@/components/variable/sharedVariable";
+import { emailRegex } from "@/variable/sharedVariable";
 
 export default function ForgotComponent() {
+    const { toast } = useToast();
     const [loading, setLoading] = useState<boolean>(false);
-    const [showHidePassword, setShowHidePassword] = useState<boolean>(false);
     const formSchema = z.object({
         email: z
             .string()
@@ -36,14 +36,30 @@ export default function ForgotComponent() {
         },
     });
 
+    const handleSendEmail = (email: string) => {
+        toast({
+            title: "Khôi phục mật khẩu thành công",
+            description: (
+                <>
+                    Mật khẩu mới đã được gửi về email: {email}
+                    <br />
+                    Hãy kiểm tra hộp thư đến hoặc spam
+                </>
+            ),
+        });
+    };
+
     function onSubmit(values: z.infer<typeof formSchema>) {
+        if (values) {
+            handleSendEmail(values.email);
+        }
         console.log(values);
     }
 
     return (
         <div className="flex h-screen">
             <div className="w-1/2 lg:block hidden relative ">
-                <Image src="/images/illusts/001.jpg" style={{ objectFit: "cover" }} fill alt=""></Image>
+                <Image priority src="/images/illusts/001.jpg" style={{ objectFit: "cover" }} fill alt=""></Image>
             </div>
             <div className="lg:w-1/2 gap-6 w-full flex flex-col items-center justify-center">
                 <span className="text-2xl font-semibold tracking-tight">Quên mật khẩu</span>

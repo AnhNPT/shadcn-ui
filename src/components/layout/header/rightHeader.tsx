@@ -7,7 +7,7 @@ import { MoonIcon, SunIcon, MagnifyingGlassIcon, CalendarIcon, EnvelopeClosedIco
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import Link from "next/link";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "@/components/ui/command";
+import { CommandDialog, CommandInput, CommandList } from "@/components/ui/command";
 
 export default function RightHeader() {
     const [login, setLogin] = useState<boolean>(false);

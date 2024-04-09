@@ -30,7 +30,7 @@ export default function LeftHeader() {
             description: "Lorem ispun",
         },
         {
-            title: "Test 4",
+            title: "Test 5",
             href: "/",
             description: "Lorem ispun",
         },
@@ -44,7 +44,7 @@ export default function LeftHeader() {
             <Link className="flex items-center space-x-2" href="#">
                 <span className="font-bold ">Testing</span>
             </Link>
-            <nav className="md:flex hidden items-center gap-4 text-sm lg:gap-6">
+            <nav className="md:flex hidden items-center gap-4 lg:ml-4 text-sm lg:gap-6">
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>
@@ -63,11 +63,6 @@ export default function LeftHeader() {
                                     ))}
                                 </ul>
                             </NavigationMenuContent>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <Link href="#" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle() + " transition-colors hover:text-foreground/80 text-foreground/60"}>Account</NavigationMenuLink>
-                            </Link>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>

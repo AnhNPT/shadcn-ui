@@ -12,7 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { emailRegex } from "@/components/variable/sharedVariable";
+import { emailRegex } from "@/variable/sharedVariable";
 
 export default function EnterComponent() {
     const [loading, setLoading] = useState<boolean>(false);
