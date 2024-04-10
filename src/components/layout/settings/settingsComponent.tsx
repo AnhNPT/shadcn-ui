@@ -40,7 +40,7 @@ const SettingsComponent = () => {
     };
 
     return (
-        <div className="container max-w-screen-2xl p-10 pb-16">
+        <div className="container max-w-screen-2xl p-10 pb-16 h-[calc(100vh-57px)]">
             <div className="flex flex-col gap-1">
                 <span className="text-2xl font-bold tracking-tight">Thiết lập</span>
                 <span className="text-muted-foreground">Chỉnh sửa tài khoản của bạn và các thiết lập ở trên trang</span>

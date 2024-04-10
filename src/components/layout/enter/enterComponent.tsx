@@ -27,8 +27,8 @@ export default function EnterComponent() {
             .regex(emailRegex, {
                 message: "Email không đúng định dạng",
             }),
-        password: z.string().min(1, {
-            message: "Mật khẩu không được để trống",
+        password: z.string().min(8, {
+            message: "Mật khẩu không được dưới 8 ký tự hoặc để trống",
         }),
     });
 

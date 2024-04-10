@@ -53,7 +53,13 @@ export default function RightHeader() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuItem className="cursor-pointer" asChild>
-                            <Link href="/settings">Thông tin</Link>
+                            <Link href="">Thông tin tài khoản</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer" asChild>
+                            <Link href="">Lịch sử</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer" asChild>
+                            <Link href="/settings">Thiết lập</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="cursor-pointer">Đăng xuất</DropdownMenuItem>
                     </DropdownMenuContent>
