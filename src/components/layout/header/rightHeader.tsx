@@ -3,14 +3,14 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon, MagnifyingGlassIcon, CalendarIcon, EnvelopeClosedIcon, FaceIcon, GearIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons";
+import { MoonIcon, SunIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import Link from "next/link";
 import { CommandDialog, CommandInput, CommandList } from "@/components/ui/command";
 
 export default function RightHeader() {
-    const [login, setLogin] = useState<boolean>(false);
+    const [login, setLogin] = useState<boolean>(true);
     const [openSearch, setOpenSearch] = useState<boolean>(false);
     const { setTheme } = useTheme();
 
@@ -47,20 +47,20 @@ export default function RightHeader() {
                 <DropdownMenu>
                     <DropdownMenuTrigger className="cursor-pointer" asChild>
                         <Avatar>
-                            <AvatarImage src="https://github.com/shadcn.png" />
+                            <AvatarImage src="" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem>Thông tin</DropdownMenuItem>
-                        <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer" asChild>
+                            <Link href="/settings">Thông tin</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">Đăng xuất</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             ) : (
                 <Button asChild variant="ghost">
-                    <Link className="" href="/enter">
-                        Đăng nhập
-                    </Link>
+                    <Link href="/enter">Đăng nhập</Link>
                 </Button>
             )}
         </div>

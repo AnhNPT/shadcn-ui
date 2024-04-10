@@ -43,7 +43,7 @@ const SettingsComponent = () => {
         <div className="container max-w-screen-2xl p-10 pb-16">
             <div className="flex flex-col gap-1">
                 <span className="text-2xl font-bold tracking-tight">Thiết lập</span>
-                <span className="text-muted-foreground">Quản lý tài khoản của bạn và các thiết lập ở trên trang</span>
+                <span className="text-muted-foreground">Chỉnh sửa tài khoản của bạn và các thiết lập ở trên trang</span>
             </div>
             <Separator className="w-full my-6" />
             <div className="flex w-full gap-4">
