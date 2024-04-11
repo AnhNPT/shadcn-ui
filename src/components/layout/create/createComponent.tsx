@@ -40,7 +40,7 @@ export default function CreateComponent() {
         })
         .refine((data: { password: string; reTypePassword: string }) => data.password === data.reTypePassword, {
             message: "Mật khẩu và mật khẩu nhập lại không khớp",
-            path: ["reTypePassword"], // chỉ định lỗi này cho trường 'reTypePassword'
+            path: ["reTypePassword"],
         });
 
     const form = useForm<z.infer<typeof formSchema>>({

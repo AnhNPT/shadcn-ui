@@ -13,7 +13,7 @@ export default function Appearance() {
         <div className="flex flex-col">
             <div className="flex flex-col gap-1">
                 <span className="text-lg font-medium">Giao diện</span>
-                <span className="text-sm text-muted-foreground">Tùy chỉnh giao diện của trang web. Tự động chuyển đổi giữa các chủ đề ngày và đêm.</span>
+                <span className="text-sm text-muted-foreground">Tùy chỉnh giao diện của trang web.</span>
             </div>
             <Separator className="w-full my-6" />
             <div className="flex flex-col gap-8 w-full">

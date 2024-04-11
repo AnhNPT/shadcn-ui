@@ -62,7 +62,7 @@ export default function Profile() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Tên người dùng</FormLabel>
-                                <FormControl defaultValue={"anhnpt"}>
+                                <FormControl>
                                     <Input placeholder="Nhập tên người dùng" {...field} />
                                 </FormControl>
                                 <FormMessage />
