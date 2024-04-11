@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SideSettingEnum } from "@/enum/enum";
 import Profile from "./profile";
 import Appearance from "./apperance";
-import Notification from "./notification";
+import ChangePassword from "./changePassword";
 
 const SettingsComponent = () => {
     const SideSetting = [
@@ -20,7 +20,7 @@ const SettingsComponent = () => {
         },
         {
             id: 2,
-            name: SideSettingEnum.NOTIFICATION,
+            name: SideSettingEnum.CHANGEPASSWORD,
         },
     ];
 
@@ -32,8 +32,8 @@ const SettingsComponent = () => {
                 return <Profile />;
             case SideSettingEnum.APPEARANCE:
                 return <Appearance />;
-            case SideSettingEnum.NOTIFICATION:
-                return <Notification />;
+            case SideSettingEnum.CHANGEPASSWORD:
+                return <ChangePassword />;
             default:
                 break;
         }
@@ -46,8 +46,8 @@ const SettingsComponent = () => {
                 <span className="text-muted-foreground">Chỉnh sửa tài khoản của bạn và các thiết lập ở trên trang</span>
             </div>
             <Separator className="w-full my-6" />
-            <div className="flex w-full gap-4">
-                <div className="flex flex-col gap-2 min-w-[20%]">
+            <div className="flex sm:flex-row flex-col w-full sm:gap-4 gap-6">
+                <div className="flex flex-row overflow-x-auto sm:flex-col gap-2 xl:min-w-[20%] sm:min-w-[25%] ">
                     {SideSetting.map((item) => (
                         <Button onClick={() => setMenuSetting(item.name)} key={item.id} className={`justify-start ${menuSetting === item.name && "hover:bg-muted bg-muted hover:no-underline"}`} variant="link">
                             {item.name}
