@@ -17,7 +17,7 @@ const SToolTips = (props: ISToolTips) => {
 
     const ButtonRef = useRef<HTMLDivElement>(null);
     const PopperRef = useRef<HTMLDivElement>(null);
-    const [arrowRef, setArrowRef] = useState(null);
+    // const [arrowRef, setArrowRef] = useState(null);
     const ArrowRef = useRef<HTMLDivElement>(null);
 
     const { styles, attributes, update } = usePopper(ButtonRef.current, PopperRef.current, {
@@ -67,9 +67,7 @@ const SToolTips = (props: ISToolTips) => {
                         showToolTips();
                     }
                 }}
-                onMouseLeave={() => {
-                    hideToolTips;
-                }}>
+                onMouseLeave={hideToolTips}>
                 {children}
             </div>
             <div className="tt-wrap" style={styles.popper} ref={PopperRef} {...attributes.popper}>

@@ -57,3 +57,11 @@
         @apply bg-background text-foreground;
     }
 }
+
+.tt-wrap {
+    display: none; /* Mặc định ẩn phần tử */
+}
+
+.tt-wrap[data-show="show"] {
+    display: flex; /* Hiển thị phần tử khi có data-show="show" */
+}
