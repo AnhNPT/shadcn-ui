@@ -8,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { emailRegex } from "@/variable/sharedVariable";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 
