@@ -20,13 +20,13 @@ export default function Appearance() {
                 <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex flex-col gap-1" onClick={() => setTheme("light")}>
                         <div className={`flex flex-col ${theme === "light" && "border-2 rounded-sm border-black"}`}>
-                            <img src="/images/illusts/lightmode.svg" alt="" />
+                            <Image src="/images/illusts/lightmode.svg" layout="responsive" alt="" width={206} height={147}></Image>
                         </div>
                         <span className="block w-full p-2 text-center font-normal">Sáng</span>
                     </div>
                     <div className="flex flex-col gap-1" onClick={() => setTheme("dark")}>
                         <div className={`relative flex flex-col sm:w-52 sm:h-36 ${theme === "dark" && "border-2 rounded-sm border-black"}`}>
-                            <img src="/images/illusts/darkmode.svg" alt="" />
+                            <Image src="/images/illusts/darkmode.svg" layout="responsive" alt="" width={206} height={147}></Image>
                         </div>
                         <span className="block w-full p-2 text-center font-normal">Tối</span>
                     </div>

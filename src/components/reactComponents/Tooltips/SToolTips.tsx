@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Placement } from "@popperjs/core/lib";
 import { usePopper } from "react-popper";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 interface ISToolTips {
     label: ReactNode;

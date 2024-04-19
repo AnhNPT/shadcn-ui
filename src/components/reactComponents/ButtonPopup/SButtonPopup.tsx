@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Placement } from "@popperjs/core/lib";
-import { HTMLProps, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { usePopper } from "react-popper";
+import { HTMLProps, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 interface IChildrenExport {
     setToggleButton: (visible: boolean) => void;
@@ -99,7 +99,7 @@ const SButtonPopup = (props: ISButtonPopup) => {
                     </div>
                 )}
             </div>
-            <div {...popupProps} className={`sbutton-option shadow-primary ${popupProps?.className || ""} ${toggleButton === true ? "flex" : "hidden"}`} ref={popperRef} style={{ ...popupProps?.style, ...styles.popper }} {...attributes.popper}>
+            <div {...popupProps} className={`sbutton-option z-10 shadow-primary ${popupProps?.className || ""} ${toggleButton === true ? "flex" : "hidden"}`} ref={popperRef} style={{ ...popupProps?.style, ...styles.popper }} {...attributes.popper}>
                 {children({ setToggleButton, toggleButton })}
             </div>
         </>

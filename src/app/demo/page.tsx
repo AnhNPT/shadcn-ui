@@ -1,8 +1,9 @@
 "use client";
 
+import SButtonPopup from "@/components/reactComponents/ButtonPopup/SButtonPopup";
+import SToolTips from "@/components/reactComponents/Tooltips/SToolTips";
 import React from "react";
-import SButtonPopup from "@/components/reactComponents/SButtonPopup";
-import SToolTips from "@/components/reactComponents/SToolTips";
+
 const Demo = () => {
     return (
         <div>

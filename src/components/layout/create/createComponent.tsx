@@ -57,7 +57,7 @@ export default function CreateComponent() {
     }
 
     return (
-        <div className="flex h-screen">
+        <div className="flex flex-row-reverse h-screen">
             <div className="w-1/2 lg:block hidden relative ">
                 <Image priority src="/images/illusts/001.jpg" style={{ objectFit: "cover" }} fill alt=""></Image>
             </div>
