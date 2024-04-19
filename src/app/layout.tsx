@@ -14,9 +14,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className + " antialiased"}>
-                <SpeedInsights />
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     {children}
+                    <SpeedInsights />
                     <Toaster />
                 </ThemeProvider>
             </body>
