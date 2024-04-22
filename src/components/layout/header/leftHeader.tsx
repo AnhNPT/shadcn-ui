@@ -5,9 +5,15 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { MagnifyingGlassIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { useHeaderContext } from "@/context/headerContext";
+
+
 
 export default function LeftHeader() {
+
+    const {state, setState} = useHeaderContext()
     const headerItems = [
         {
             title: "Test 1",
@@ -36,11 +42,19 @@ export default function LeftHeader() {
         },
     ];
 
+
+
     return (
+    
         <div className="flex items-center sm:gap-2 gap-0">
-            <Button className="flex justify-center items-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0" variant="ghost" size="icon">
-                <HamburgerMenuIcon className="h-[1.2rem] w-[1.2rem]" />
-            </Button>
+            <Drawer direction="left">
+                <DrawerTrigger>
+                    <Button className="md:hidden flex justify-center items-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0" variant="ghost" size="icon">
+                        <HamburgerMenuIcon className="h-[1.2rem] w-[1.2rem]" />
+                    </Button>
+                </DrawerTrigger>
+                <DrawerContent>some draw</DrawerContent>
+            </Drawer>
             <Link className="flex items-center space-x-2" href="/">
                 <span className="font-bold ">Testing</span>
             </Link>
@@ -68,6 +82,7 @@ export default function LeftHeader() {
                 </NavigationMenu>
             </nav>
         </div>
+       
     );
 }
 

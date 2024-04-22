@@ -3,6 +3,7 @@ import "../../public/styles/globals.scss";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme/themeProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { TestProvider } from "@/context/headerContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +15,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className + " antialiased"}>
+          
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     {children}
                     <SpeedInsights />
                     <Toaster />
                 </ThemeProvider>
+             
             </body>
         </html>
     );
