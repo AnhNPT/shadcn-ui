@@ -10,9 +10,8 @@ import Link from "next/link";
 import { CommandDialog, CommandInput, CommandList } from "@/components/ui/command";
 
 export default function RightHeader() {
-    const [login, setLogin] = useState<boolean>(true);
+    const [login, setLogin] = useState<boolean>(false);
     const [openSearch, setOpenSearch] = useState<boolean>(false);
-    const { setTheme } = useTheme();
 
     return (
         <div className="flex sm:gap-4 gap-2 items-center">
@@ -34,9 +33,6 @@ export default function RightHeader() {
                     <DropdownMenuContent align="end">
                         <DropdownMenuItem className="cursor-pointer" asChild>
                             <Link href="">Thông tin tài khoản</Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="cursor-pointer" asChild>
-                            <Link href="">Lịch sử</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="cursor-pointer" asChild>
                             <Link href="/settings">Thiết lập</Link>
