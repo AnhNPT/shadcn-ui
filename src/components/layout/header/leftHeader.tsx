@@ -1,16 +1,14 @@
 "use client";
 
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import React from "react";
 import { HamburgerMenuIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { useHeaderContext } from "@/context/headerContext";
-import { ListItem } from "../listItem";
 import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 
 export default function LeftHeader() {
-    const { state, setState } = useHeaderContext();
+    // const { state, setState } = useHeaderContext();
+
     const headerItems = [
         {
             id: "Test 1",
@@ -40,7 +38,7 @@ export default function LeftHeader() {
     ];
 
     return (
-        <div className="flex items-center sm:gap-6 gap-0">
+        <div className="flex items-center md:gap-6 gap-0">
             <Drawer direction="left">
                 <DrawerTrigger className="mr-3 md:hidden flex">
                     <HamburgerMenuIcon className="h-[1.2rem] w-[1.2rem]" />
@@ -68,13 +66,13 @@ export default function LeftHeader() {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
-                <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="#">
+                <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="">
                     Tìm kiếm nâng cao
                 </Link>
                 <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="#">
                     Lịch sử
                 </Link>
-            </nav >
-        </div >
+            </nav>
+        </div>
     );
 }
