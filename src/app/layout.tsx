@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "../../public/styles/globals.scss";
+import "../../public/styles/index.scss";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme/themeProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -18,7 +18,7 @@ export default function RootLayout({
                     {children}
                     <SpeedInsights />
                     <Toaster />
-                </ThemeProvider>            
+                </ThemeProvider>
             </body>
         </html>
     );

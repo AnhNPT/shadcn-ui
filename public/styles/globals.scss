@@ -65,3 +65,23 @@
 .tt-wrap[data-show="show"] {
     display: flex; /* Hiển thị phần tử khi có data-show="show" */
 }
+
+.truncate{
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: unset;
+    white-space: unset;
+    &.one-row {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1; 
+    }
+    &.two-rows {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; 
+    }
+    &.three-rows {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; 
+    }
+}
+

@@ -1,4 +1,5 @@
 import Header from "@/components/layout/header/header";
+import RecentlyUpdate from "@/components/layout/home/recentlyUpdate";
 import SliderTop from "@/components/layout/home/sliderTop";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
         <>
             <Header />
             <SliderTop />
-
+            <RecentlyUpdate />
         </>
     );
 }
