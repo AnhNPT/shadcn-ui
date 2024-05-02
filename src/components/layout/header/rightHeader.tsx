@@ -8,7 +8,7 @@ import Link from "next/link";
 import { CommandDialog, CommandInput, CommandList } from "@/components/ui/command";
 
 export default function RightHeader() {
-    const [login, setLogin] = useState<boolean>(false);
+    const [login, setLogin] = useState<boolean>(true);
     const [openSearch, setOpenSearch] = useState<boolean>(false);
 
     return (

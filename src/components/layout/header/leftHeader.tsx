@@ -66,7 +66,7 @@ export default function LeftHeader() {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
-                <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="">
+                <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="/advanced-search">
                     Tìm kiếm nâng cao
                 </Link>
                 <Link className="transition-colors hover:text-foreground/100 text-foreground/80" href="#">

@@ -52,12 +52,6 @@ const RecentlyUpdate = () => {
             name: "Lorem ispun",
             description: "Lorem ispun",
         },
-        {
-            id: 8,
-            img: "/images/illusts/001.jpg",
-            name: "Lorem ispun",
-            description: "Lorem ispun",
-        },
     ];
 
     return (
@@ -66,7 +60,7 @@ const RecentlyUpdate = () => {
                 <h2 className="text-2xl font-semibold tracking-tight">Mới cập nhật</h2>
                 <span className="text-sm text-muted-foreground">Lorem ispun</span>
             </div>
-            <div className="grid-items mt-4">
+            <div className="grid grid-items mt-4">
                 {recentUpdate.map((item) => (
                     <Link href="" key={item.id} className="flex flex-col gap-2">
                         <div className="relative w-full h-60" >
